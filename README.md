@@ -26,6 +26,8 @@
 
 - execute `composer --version` in dev container : `pnpm exec devcontainer exec --workspace-folder $(pwd) composer --version`
 
+- execute `pnpm exec devcontainer build --workspace-folder $(pwd)` to rebuild the devcontainer image
+
 ## Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=848691489&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestEurope)
