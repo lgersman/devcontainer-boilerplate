@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
+RUN export DEBIAN_FRONTEND=noninteractive
+
 # Install the xz-utils package
 # RUN apt-get update && apt-get install -y xz-utils
 
