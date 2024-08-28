@@ -33,11 +33,12 @@ At first time you need to install the dependencies using the "pnpm install" comm
 
 # Development
 
-Run 'pnpm start' to start the WordPress development environment.
+Run "pnpm start" to start the WordPress development environment.
 
 Execute "jq '.scripts' package.json" to see available scripts.
 
 Have fun !
+
 EOF
 
 USER vscode
