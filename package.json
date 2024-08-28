@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build" : "pnpm --recursive --if-present build",
-    "watch" : "pnpm run '/^watch:.*/' --recursive",
+    "watch" : "pnpm run --recursive --parallel --if-present watch",
     "start" : "pnpm build && pnpm exec wp-env start --debug --xdebug",
     "stop" : "pnpm exec wp-env stop",
     "destroy" : "echo 'y' | pnpm exec wp-env destroy --debug",
