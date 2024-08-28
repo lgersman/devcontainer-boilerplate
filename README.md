@@ -1,1 +1,1 @@
-# devcontainer-prototype
+# devcontainer-boilerplate
