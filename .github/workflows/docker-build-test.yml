@@ -28,14 +28,17 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and run Dev Container task
+      - name: Pre-build image and run make ci-build in dev container
         uses: devcontainers/ci@v0.3
         with:
+          push: always
           # Change this to point to your image name
           imageName: "${{ github.event.inputs.imageName }}"
+          cacheFrom: "${{ github.event.inputs.imageName }}"
           # Change this to be your CI task/script
           runCmd: |
             echo "Using image ${{ github.event.inputs.imageName }}"
             pnpm install
             pnpm build
             echo "It seems to work !"
+
