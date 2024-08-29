@@ -1,17 +1,17 @@
-name: 'manual triggered test workflow'
+name: 'pre-build and test devcontainer image'
 on:
-  workflow_dispatch:
-    inputs:
-      imageName:
-        description: 'Image name to build'
-        required: true
-        default: 'ghcr.io/lgersman/devcontainer-boilerplate'
+# workflow_dispatch:
+#   inputs:
+#     imageName:
+#       description: 'Image name to build'
+#       required: true
+#       default: 'ghcr.io/lgersman/devcontainer-boilerplate'
 
-# # rebuild any PRs and main branch changes
-# pull_request:
-# push:
-#   branches:
-#     - main
+  # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -33,11 +33,11 @@ jobs:
         with:
           push: always
           # Change this to point to your image name
-          imageName: "${{ github.event.inputs.imageName }}"
-          cacheFrom: "${{ github.event.inputs.imageName }}"
+          imageName: ghcr.io/lgersman/devcontainer-boilerplate
+          cacheFrom: ghcr.io/lgersman/devcontainer-boilerplate
           # Change this to be your CI task/script
           runCmd: |
-            echo "Using image ${{ github.event.inputs.imageName }}"
+            echo "Using image "ghcr.io/lgersman/devcontainer-boilerplate"
             pnpm install
             pnpm build
             echo "It seems to work !"
