@@ -37,7 +37,7 @@ jobs:
           cacheFrom: ghcr.io/lgersman/devcontainer-boilerplate
           # Change this to be your CI task/script
           runCmd: |
-            echo "Using image "ghcr.io/lgersman/devcontainer-boilerplate"
+            echo "Using image ghcr.io/lgersman/devcontainer-boilerplate"
             pnpm install
             pnpm build
             echo "It seems to work !"
