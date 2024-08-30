@@ -2,6 +2,11 @@ name: 'test devcontainer image'
 on:
   # can only be triggered manually
   workflow_dispatch:
+    inputs:
+      additionalTestCmd:
+        description: 'A shell expression to run after the default test commands'
+        required: true
+        default: 'echo "WP_ENV_HOME=${WP_ENV_HOME} !"'
 
 jobs:
   test:
@@ -19,4 +24,5 @@ jobs:
           runCmd: |
             pnpm install
             pnpm build
+            ${{ github.event.inputs.additionalTestCmd }}
 
