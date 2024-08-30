@@ -1,12 +1,5 @@
-name: 'pre-build and test devcontainer image'
+name: 'build devcontainer image'
 on:
-# workflow_dispatch:
-#   inputs:
-#     imageName:
-#       description: 'Image name to build'
-#       required: true
-#       default: 'ghcr.io/lgersman/devcontainer-boilerplate'
-
   # rebuild any PRs and main branch changes
   pull_request:
   push:
@@ -39,14 +32,19 @@ jobs:
       - name: Pre-build image and run make ci-build in dev container
         uses: devcontainers/ci@v0.3
         with:
-          push: always
-          # Change this to point to your image name
+          # push image only if the branch is main and the event is push
+          push: filter
+          refFilterForPush: refs/heads/main
+          eventFilterForPush: push
+
+          # name of the pushed image
           imageName: ghcr.io/lgersman/devcontainer-boilerplate
+          # enable caching (will build the image only if related files where changed)
           cacheFrom: ghcr.io/lgersman/devcontainer-boilerplate
-          # Change this to be your CI task/script
+          # make some tests to test the devcontainer image is working
           runCmd: |
-            echo "Using image ghcr.io/lgersman/devcontainer-boilerplate"
-            pnpm install
-            pnpm build
-            echo "It seems to work !"
+            # test if pnpm is properly installed
+            command -v pnpm
+            # test if devcontainer environment is properly set
+            env | grep WP_ENV_HOME
 

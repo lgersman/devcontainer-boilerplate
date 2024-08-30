@@ -74,11 +74,16 @@
         "johnbillion.vscode-wordpress-hooks",
         "pucelle.vscode-css-navigation",
         "xdebug.php-debug"
-      ]
+      ],
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "files.eol": "\n"
+      }
     }
   },
 
-	"portsAttributes": {
+  "portsAttributes": {
 		"9003": {
 			"label": "PHP xdebug port"
 		},
@@ -88,9 +93,9 @@
 		"8889": {
 			"label": "wp-env test instance"
 		}
-	}
+	},
 
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// Connect as user vscode More info: https://aka.ms/dev-containers-non-root.
+  // we are using the default non-root user "vscode" to avoid permission issues
+	"remoteUser": "vscode"
 }

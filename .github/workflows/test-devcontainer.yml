@@ -1,0 +1,22 @@
+name: 'test devcontainer image'
+on:
+  # can only be triggered manually
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v4
+
+      - name: use devcontainer image
+        uses: devcontainers/ci@v0.3
+        with:
+          # name of the image to use
+          imageName: ghcr.io/lgersman/devcontainer-boilerplate
+          runCmd: |
+            pnpm install
+            pnpm build
+

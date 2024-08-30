@@ -41,7 +41,7 @@ Have fun !
 
 EOF
 
-USER vscode
+USER $USERNAME
 
 # Install pnpm
 RUN curl https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" PNPM_VERSION=9.9.0 SHELL="$(which bash)" bash -
