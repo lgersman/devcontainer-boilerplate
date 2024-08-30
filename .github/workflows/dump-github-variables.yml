@@ -1,3 +1,4 @@
+# this workflow is just for debugging/development purposes and not needed for the actual workflow
 name: dump github variables
 on:
   workflow_dispatch:
