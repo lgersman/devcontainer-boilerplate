@@ -1,5 +1,7 @@
 # About
 
+__This project is a proof of concept developed as a research experiment and will not be actively maintained or further developed.__
+
 This project is a template for WordPress projects using Dev Containers.
 
 > Dev Containers are a standardized way to define and describe development environments. They are based on Docker containers and can be used with any editor or IDE. Dev Containers are a great way to __ensure that all developers on a project have the same development environment__, regardless of their operating system. The same Dev Container can be used for local development, CI/CD, and more.
